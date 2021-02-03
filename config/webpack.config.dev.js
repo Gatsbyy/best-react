@@ -26,18 +26,18 @@ module.exports = Object.assign(base, {
     hot: true,
     host: address,
     port: config.dev.port,
-    proxy: {
-      '/api/*': {
-        target: config.dev.apiUrl,
-        changeOrigin: true,
-        secure: true,
-      },
-    },
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/$/, to: '/index.html' }
-      ]
-    }
+    // proxy: {
+    //   '/api/*': {
+    //     target: config.dev.apiUrl,
+    //     changeOrigin: true,
+    //     secure: true,
+    //   },
+    // },
+    // historyApiFallback: {
+    //   rewrites: [
+    //     { from: /^\/$/, to: '/index.html' }
+    //   ]
+    // }
   },
   devtool: 'source-map'
 });

@@ -4,9 +4,8 @@
 module.exports = {
   dev: {
     // 端口
-    port: 5000,
+    port: 5002,
     // 连接后端API的URL
-    // apiUrl: 'http://47.56.207.189:8399/'
-    apiUrl: 'https://oklinkbeta.bafang.com/'
+    apiUrl: 'xxx'
   }
 };
