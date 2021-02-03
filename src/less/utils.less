@@ -1,0 +1,218 @@
+@import './variables.less';
+@import './mixins.less';
+// common style class
+
+// ----------- font-color ---------
+.color-link {
+  color: @linkColor;
+}
+// 常用于大标题
+.color-1F2533 {
+  color: #1F2533;
+}
+// 文案通用颜色
+.color-3F475A {
+  color: #3F475A;
+}
+// 常用于辅助说明 提示文案
+.color-9AA1B1 {
+  color: #9AA1B1;
+}
+.color-9BA2B1 {
+  color: #9BA2B1;
+}
+.color-white {
+  color: #fff;
+}
+.color-E35E5E {
+  color: #E35E5E;
+}
+.color-warning {
+  color: #E35E5E;
+}
+.color-2EAD65 {
+  color: #2EAD65;
+}
+.color-E35E5E {
+  color: #E35E5E;
+}
+.color-070C39 {
+  color: #070C39;
+}
+.color-F6CD43 {
+  color: #F6CD43;
+}
+// ----------- font-size ---------
+.font-12 {
+  font-size: 12px;
+  line-height: 16px;
+  // 16
+}
+.font-14 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.font-16 {
+  font-size: 16px;
+  line-height: 20px;
+}
+.font-18 {
+  font-size: 18px;
+  line-height: 24px;
+}
+.font-24 {
+  font-size: 24px;
+  line-height: 28px;
+}
+// ----------- font-weight ---------
+// 部分浏览器没有500的设定值，但是 bold部分浏览器表现的加粗效果太粗
+// 和设计同学确认 采用500，部分浏览器没有对应的值 忽略
+.font-bold {
+  font-weight: 500;
+}
+.font-normal {
+  font-weight: normal;
+}
+.font-600 {
+  font-weight: 600;
+}
+
+// ----------- text-align ---------
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+// ----------- mixins ---------
+.section-title {
+  .color-1F2533();
+  .font-18();
+  .font-bold();
+}
+
+
+// ----------- demecision ---------
+.mg-t-4 {
+  margin-top: 4px;
+}
+.mg-b-4 {
+  margin-bottom: 4px;
+}
+.mg-r-4 {
+  margin-right: 4px;
+}
+.mg-r-8 {
+  margin-right: 8px;
+}
+.mg-l-8 {
+  margin-left: 8px;
+}
+.mg-b-8 {
+  margin-bottom: 8px;
+}
+.mg-b-12 {
+  margin-bottom: 12px;
+}
+// ----------- flex ---------
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.flex-item {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+// 一般用于flex 内部item 强制换行 参见 https://getbootstrap.com/docs/4.5/layout/grid/#equal-width-multi-line
+.w-100 {
+  width: 100%!important;
+}
+// 交叉轴对齐
+.align-items{
+  &-start {
+    align-items: flex-start;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+}
+
+// 主轴对齐
+.justify-content {
+  &-start{
+    justify-content: flex-start;
+  }
+  &-center{
+    justify-content: center;
+  }
+  &-end{
+    justify-content: flex-end;
+  }
+  &-between{
+    justify-content: space-between;
+  }
+}
+
+// ----------- background color ---------
+.bg-white {
+  background: #FFFFFF;
+}
+
+// ----------- others ---------
+.underline {
+  text-decoration: underline;
+}
+.ellipsis {
+  .ellipsis();
+}
+.ellipsis2 {
+  .ellipsis(2);
+}
+.border-t {
+  border-top: 1px solid @borderColor;
+}
+.border-b {
+  border-bottom: 1px solid @borderColor;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
+}
+.icon-transition {
+  transition: transform ease .3s
+}
+.icon-up {
+  transform: rotate(180deg);
+}
+
+// hide
+.hidden {
+  display: none;
+}
+
+.a_hover {
+  &:hover {
+    color: #2D60E0;
+  }
+}
