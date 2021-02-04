@@ -16,72 +16,78 @@ const base = {
   },
   module: {
     rules: [
-    {
-      test: /\.(js|jsx)$/,
-      use: 'happypack/loader',
-      exclude: /node_modules\/(?!@ok\/)/,
-    },
-    {
-      test: /\.css$/,
-      use: [
-        process.env.NODE_ENV === 'production' ? {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            esModule: false
-          }
-        } : 'style-loader',
-        'css-loader',
-        'postcss-loader'
-      ]
-    },
-    {
-      test: /\.less$/,
-      use: [
-        process.env.NODE_ENV === 'production' ?
-          {
+      {
+        test: /\.(js|jsx)$/,
+        use: 'happypack/loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          process.env.NODE_ENV === 'production' ? {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: false
             }
-          }
-          : 'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: {
-              auto: /\.module\.\w+$/i,
-              exportLocalsConvention: 'camelCase',
-              localIdentName: '[local]--[hash:base64:5]',
+          } : 'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          process.env.NODE_ENV === 'production' ? {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false
+            }
+          } :
+            'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                auto: /\.module\.\w+$/i,
+                exportLocalsConvention: 'camelCase',
+                localIdentName: '[local]--[hash:base64:5]',
+              },
             },
           },
-        },
-        'postcss-loader',
-        'less-loader'
-      ]
-    }, {
-      test: /\.html$/,
-      use: [
-        {
+          'postcss-loader',
+          'less-loader'
+        ]
+      }, {
+        test: /\.html$/,
+        use: [{
           loader: 'html-loader',
-          options: { minimize: true }
+          options: {
+            minimize: true
+          }
+        }]
+      }, {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'img/[name].[hash:7].[ext]'
         }
-      ]
-    }, {
-      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        name: 'img/[name].[hash:7].[ext]'
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
       }
-    },
-    {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        name: 'fonts/[name].[hash:7].[ext]'
-      }
-    }]
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.less'],
@@ -104,37 +110,39 @@ const base = {
     process.env.NODE_ENV === 'production' ?
       new MiniCssExtractPlugin({
         filename: 'index.css',
-      })
-      : null,
+      }) :
+      null,
     new HtmlWebpackPlugin({
       template: path.resolve(src, 'index.html'),
       filename: 'index.html'
     }),
     new HappyPack({
-      loaders: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  useBuiltIns: 'usage',
-                  targets: ['> 1%', 'last 2 versions', 'IE >= 10'],
-                  corejs: '3',
-                }
-              ],
-              '@babel/preset-react'
+      loaders: [{
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                useBuiltIns: 'usage',
+                targets: ['> 1%', 'last 2 versions', 'IE >= 10'],
+                corejs: '3',
+              }
             ],
-            plugins: [
-              ['@babel/plugin-proposal-decorators', { legacy: true }],
-              ['@babel/plugin-proposal-class-properties', { loose: true }],
-              '@babel/plugin-proposal-optional-chaining',
-              '@babel/plugin-proposal-nullish-coalescing-operator',
-            ]
-          }
+            '@babel/preset-react'
+          ],
+          plugins: [
+            ['@babel/plugin-proposal-decorators', {
+              legacy: true
+            }],
+            ['@babel/plugin-proposal-class-properties', {
+              loose: true
+            }],
+            '@babel/plugin-proposal-optional-chaining',
+            '@babel/plugin-proposal-nullish-coalescing-operator',
+          ]
         }
-      ]
+      }]
     })
   ]
 };
