@@ -1,3 +1,5 @@
+// 0 - off(default), 1 - warn, 2 - error
+
 {
   "parser": "babel-eslint",
   "env": {
@@ -11,7 +13,7 @@
     "react-hooks"
   ],
   "rules": {
-    // ...
+    "react/prop-types": ["off"],
     "quotes": [2, "single"],
     "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
     "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
