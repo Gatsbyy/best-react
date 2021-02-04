@@ -33,11 +33,11 @@ module.exports = Object.assign(base, {
     //     secure: true,
     //   },
     // },
-    // historyApiFallback: {
-    //   rewrites: [
-    //     { from: /^\/$/, to: '/index.html' }
-    //   ]
-    // }
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: '/index.html' }
+      ]
+    }
   },
   devtool: 'source-map'
 });

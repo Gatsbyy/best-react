@@ -1,8 +1,8 @@
 import React from "react";
 
-function App() {
+function App({ children }) {
   return (
-    <div>App</div>
+    <>{children}</>
   )
 }
 
