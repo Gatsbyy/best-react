@@ -1,4 +1,4 @@
-## 最佳实践 beta
+## 最佳实践
 
 ### 目录结构
 0. components -- 公共组件
@@ -10,6 +10,16 @@
 7. less -- 全局样式统一文件、公共类样式定义等
 8. mock -- 本地mock数据
 9. stores -- 数据流容器
+
+### 工程化
+0. webpack - base dev js less babel happypack等
+1. eslint - babel-eslint eslint-loader eslintrc webpack
+2. webpack alias别名跳转配置 - jsconfig.json
+3. 添加router路由 - router.js
+4. 添加prototype
+5. 局部刷新 - react-refresh-webpack-plugin和hot:true
+6. 
+
 
 
 ### 组件相关

@@ -3,7 +3,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": false,
-    "target": "ES6",
+    "target": "ES6", // 重要，否则不会自动跳转
     "baseUrl": "./",
     "jsx": "react",
     "paths": {
