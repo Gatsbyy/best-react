@@ -1,33 +1,29 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Home from '@containers/Home';
-import About from '@containers/About';
-import Detail from '@containers/Detail';
-import NotMatch from '@containers/NotMatch'
-
 import { enumRouterPath } from '@enum/enumRouter';
+import LoadableComponent from '@components/LoadableComponent'
 
 import App from './App';
 
 const routeMap = [
   {
     path: enumRouterPath.Home,
-    Component: Home,
+    Component: () => { return import('@containers/Home') },
     exact: true
   },
   {
     path: enumRouterPath.About,
-    Component: About,
+    Component: () => { return import('@containers/About') },
     exact: true
   },
   {
     path: enumRouterPath.Detail,
-    Component: Detail,
+    Component: () => { return import('@containers/Detail') },
     exact: true
   },
   {
-    Component: NotMatch,
+    Component: () => { return import('@containers/NotMatch') },
   }
 ];
 
@@ -38,13 +34,14 @@ const Routers = (
         {
           routeMap.map((route, index) => {
             const { path, Component, exact } = route;
+            const Page = LoadableComponent(Component);
             return (
               <Route
                 key={index}
                 exact={exact}
                 path={path}
               >
-                <Component />
+                <Page />
               </Route>
             );
           })

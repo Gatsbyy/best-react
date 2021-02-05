@@ -18,7 +18,8 @@
 3. 添加router路由 - router.js
 4. 添加prototype
 5. 局部刷新 - react-refresh-webpack-plugin和hot:true
-6. 
+6. 动态路由 - react-router
+7. 组件按需加载 - @loadable/component
 
 
 

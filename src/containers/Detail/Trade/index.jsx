@@ -2,7 +2,7 @@ import React from 'react';
 
 function Trade() {
   return (
-    <div>Trade</div>
+    <div>Tradesssssssss</div>
   )
 }
 

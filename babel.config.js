@@ -8,4 +8,5 @@ module.exports = {
     ['@babel/preset-env', { targets: { node: 'current' }, corejs: 3 }],
     ['@babel/preset-react']
   ],
+  plugins: ['@babel/plugin-syntax-dynamic-import']
 };
