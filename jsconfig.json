@@ -11,6 +11,7 @@
       "@containers/*": ["src/containers/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@enum/*": ["src/enum/*"],
       "@less/*": ["src/less/*"],
       "@fonts/*": ["src/fonts/*"],
       "@stores/*": ["src/stores/*"],

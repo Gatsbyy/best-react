@@ -116,6 +116,7 @@ const base = {
       '@containers': path.resolve(__dirname, '../src/containers'),
       '@components': path.resolve(__dirname, '../src/components'),
       '@hooks': path.resolve(__dirname, '../src/hooks'),
+      '@enum': path.resolve(__dirname, '../src/enum'),
       '@less': path.resolve(__dirname, '../src/less'),
       '@fonts': path.resolve(__dirname, '../src/fonts'),
       '@stores': path.resolve(__dirname, '../src/stores'),
