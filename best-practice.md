@@ -19,7 +19,9 @@
 4. 添加prototype
 5. 局部刷新 - react-refresh-webpack-plugin和hot:true
 6. 动态路由 - react-router
-7. 组件按需加载 - @loadable/component
+7. 组件按需加载 - react-loadable
+8. axios
+9. mobx - https://mobx.js.org/react-integration.html mobx v6 最佳实践
 
 
 

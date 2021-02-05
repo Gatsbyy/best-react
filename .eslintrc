@@ -10,11 +10,11 @@
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
     "react",
-    "react-hooks",
-    "spellcheck"
+    "react-hooks"
   ],
   "rules": {
     "react/prop-types": ["off"],
+    "react/display-name": ["off"],
     "quotes": [2, "single"],
     "object-curly-spacing": [1, "always"],
     // "array-bracket-spacing": ["error","always"],
@@ -22,25 +22,7 @@
     "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
     "indent": ["error", 2, {
       "ignoredNodes": ["TemplateLiteral"]
-    }],
-    // "spellcheck/spell-checker": [1,
-    //   {
-    //     "comments": true,
-    //     "strings": true,
-    //     "identifiers": false,
-    //     "lang": "en_US",
-    //     "skipWords": [
-    //       ""
-    //     ],
-    //     "skipIfMatch": [
-    //       "http://[^s]*"
-    //     ],
-    //     "skipWordIfMatch": [
-    //       "^foobar.*$"
-    //     ],
-    //     "minLength": 3
-    //   }
-    // ]
+    }]
   },
   "settings": {
     "react": {

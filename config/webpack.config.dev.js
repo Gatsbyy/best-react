@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const env = require('./dev.env');
 const base = require('./webpack.config.base');
@@ -22,6 +23,23 @@ module.exports = Object.assign(base, {
     hot: true,
     host: address,
     port: config.dev.port,
+    before: function (app) {
+      app.get('/mock/*', function (req, res) {
+        const fileName = req.params[0].split('/').pop();
+        const filepath = path.resolve(__dirname, '../src/mock', `${fileName}.json`);
+        try {
+          const content = fs.readFileSync(filepath, 'utf-8');
+          const data = JSON.parse(content);
+          res.json({ code: 200, data })
+        } catch (err) {
+          console.error('your mock data filename should be', `${fileName}.json`);
+          res.json({
+            code: 1,
+            msg: err.message
+          });
+        }
+      });
+    },
     // proxy: {
     //   '/api/*': {
     //     target: config.dev.apiUrl,

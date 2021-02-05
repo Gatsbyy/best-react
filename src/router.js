@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { enumRouterPath } from '@enum/enumRouter';
+import { routerPrefix } from '@enum/index';
 import LoadableComponent from '@components/LoadableComponent'
 
 import App from './App';
@@ -28,7 +29,7 @@ const routeMap = [
 ];
 
 const Routers = (
-  <BrowserRouter basename='/base'>
+  <BrowserRouter basename={routerPrefix}>
     <App>
       <Switch>
         {
