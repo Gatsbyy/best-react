@@ -2,8 +2,10 @@ const path = require('path');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const src = path.resolve(__dirname, '../src');
+const isDev = process.env.NODE_ENV !== 'production';
 
 const base = {
   entry: {
@@ -16,6 +18,20 @@ const base = {
   },
   module: {
     rules: [
+      {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              plugins: [
+                isDev && require.resolve('react-refresh/babel'),
+              ].filter(Boolean),
+            },
+          },
+        ],
+      },
       {
         test: /\.(js|jsx)$/,
         use: 'happypack/loader',
@@ -30,7 +46,7 @@ const base = {
       {
         test: /\.css$/,
         use: [
-          process.env.NODE_ENV === 'production' ? {
+          !isDev ? {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: false
@@ -43,7 +59,7 @@ const base = {
       {
         test: /\.less$/,
         use: [
-          process.env.NODE_ENV === 'production' ? {
+          !isDev ? {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: false
@@ -107,7 +123,7 @@ const base = {
     }
   },
   plugins: [
-    process.env.NODE_ENV === 'production' ?
+    !isDev ?
       new MiniCssExtractPlugin({
         filename: 'index.css',
       }) :
@@ -116,6 +132,7 @@ const base = {
       template: path.resolve(src, 'index.html'),
       filename: 'index.html'
     }),
+    isDev && new ReactRefreshWebpackPlugin(),
     new HappyPack({
       loaders: [{
         loader: 'babel-loader',
@@ -144,7 +161,7 @@ const base = {
         }
       }]
     })
-  ]
+  ],
 };
 
 base.plugins = base.plugins.filter((item) => {

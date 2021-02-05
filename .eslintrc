@@ -7,7 +7,7 @@
     "es6": true, //启用除了modules以外的所有ES6特性（该选项会自动设置 ecmaVersion 解析器选项为 6）
     "node": true //Node.js 全局变量和 Node.js 作用域
   },
-  "extends": [ "eslint:recommended", "plugin:react/recommended" ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
     "react",
     "react-hooks"
@@ -20,5 +20,10 @@
     "indent": ["error", 2, {
       "ignoredNodes": ["TemplateLiteral"]
     }]
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
   }
 }
