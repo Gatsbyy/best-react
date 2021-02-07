@@ -29,7 +29,7 @@
   4. store中的异步请求方案：
     (0). async/await
     (1). generator + flow(该方案中promise可取消，实现原理为generator + promise， 可查看源码)
-10. 
+10. 单元测试 - jest
 
 
 
