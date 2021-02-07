@@ -12,12 +12,12 @@ axios.interceptors.request.use((request) => {
 });
 
 axios.interceptors.response.use((response) => {
-  // const { code } = response;
-  // if (code !== 200) {
-  //   Promise.reject('error');
-  // }
+  const { code, data } = response.data;
+  if (code !== 200) {
+    Promise.reject('error');
+  }
 
-  return response;
+  return data;
 }, (error) => {
   return Promise.reject(error);
 });

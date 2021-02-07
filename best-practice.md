@@ -21,7 +21,16 @@
 6. 动态路由 - react-router
 7. 组件按需加载 - react-loadable
 8. axios
-9. mobx - https://mobx.js.org/react-integration.html mobx v6 最佳实践
+9. mobx - https://mobx.js.org/react-integration.html mobx 最佳实践
+  0. 抛弃inject，使用mobx-react-lite的observer
+  1. 数据绑定使用makeAutoObservable自动绑定所有变量，也可有其他选择
+  2. 根据es6，类中的实例属性可以写在constructor外的顶部
+  3. 计算值全部以computed开头
+  4. store中的异步请求方案：
+    (0). async/await
+    (1). generator + flow(该方案中promise可取消，实现原理为generator + promise， 可查看源码)
+10. 
+
 
 
 

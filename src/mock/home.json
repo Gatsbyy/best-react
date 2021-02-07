@@ -1,0 +1,7 @@
+{
+  "code": 200,
+   "data": {
+     "fruit": ["apple", "orange", "banana", "pear", "kiwi", "watermelon", "lemon", "strawberry", "blueberry", "grape"],
+     "vegetables": ["carrot", "onion", "potato"]
+   }
+}
