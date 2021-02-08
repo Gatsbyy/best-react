@@ -30,7 +30,7 @@
     (0). async/await
     (1). generator + flow(该方案中promise可取消，实现原理为generator + promise， 可查看源码)
 10. 单元测试 - jest
-
+11. 国际化
 
 
 

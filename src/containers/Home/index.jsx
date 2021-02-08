@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useStore } from '@src/stores';
 import { observer } from 'mobx-react-lite'
+import intl from 'react-intl-universal';
 
 function Home() {
   const { homeStore } = useStore();
@@ -26,6 +27,7 @@ function Home() {
           })
         }
       </p>
+      <p>{intl.get('home')}</p>
     </div>
   )
 }
