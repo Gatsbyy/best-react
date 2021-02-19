@@ -14,6 +14,8 @@ const language = {
 export default function loadLanguage(lang) {
   intl.init({
     currentLocale: lang, // TODO: determine locale here
-    locales: language,
+    locales: {
+      [lang]: language[lang]
+    },
   });
 }

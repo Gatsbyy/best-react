@@ -2,7 +2,7 @@ import axios from 'axios'
 
 axios.defaults.baseURL = '/mock';
 axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
-
+const successCode = [0, 200];
 // 拦截器
 axios.interceptors.request.use((request) => {
   if (!request.headers.Authorization) {
@@ -13,7 +13,7 @@ axios.interceptors.request.use((request) => {
 
 axios.interceptors.response.use((response) => {
   const { code, data } = response.data;
-  if (code !== 200) {
+  if (!successCode.includes(code)) {
     Promise.reject('error');
   }
 
