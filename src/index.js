@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { stores, StoreContext } from '@src/stores';
+import '@less/base';
 
 import Routers from './router';
 

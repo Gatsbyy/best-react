@@ -31,6 +31,7 @@
     (1). generator + flow(该方案中promise可取消，实现原理为generator + promise， 可查看源码)
 10. 单元测试 - jest
 11. 国际化
+12. 引入react-table库(使用react-hooks实现)，实现table列表的通用处理逻辑
 
 
 

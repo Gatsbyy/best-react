@@ -16,6 +16,7 @@
   "rules": {
     "react/prop-types": ["off"],
     "react/display-name": ["off"],
+    // "no-unused-vars": ["off"],
     "quotes": [2, "single"],
     "object-curly-spacing": [1, "always"],
     // "array-bracket-spacing": ["error","always"],

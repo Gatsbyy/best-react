@@ -5,6 +5,7 @@ import { makeAutoObservable } from 'mobx';
 class HomeStore {
   fruit = []; // 水果
   vegetables = []; // 蔬菜
+  listInfo = {}; // table 列表
   constructor() {
     makeAutoObservable(this);
   }
@@ -13,6 +14,12 @@ class HomeStore {
     const { data } = await axios.get(enumUrls.home);
     this.fruit = data.fruit;
     this.vegetables = data.vegetables;
+  }
+
+  async getList() {
+    const { data } = await axios.get(enumUrls.list);
+    console.log('data====', data)
+    this.listInfo = data;
   }
 }
 
